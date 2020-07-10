@@ -1,18 +1,16 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This is an assignment in R programming for lexical scoping
+##The following function create an object that both stores a matrix and caches its inverse. 
+## 
 
-## Write a short comment describing this function
+## This is me telling R to creates a special “matrix”, which is really a list containing a function to:
 
-makeCacheMatrix <- function(x = matrix()) {
+#set the value of the matrix
 
-}
+#get the value of the matrix
 
+#set the value of the inverse
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
+#get the value of the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
         i <- NULL
@@ -29,6 +27,11 @@ makeCacheMatrix <- function(x = matrix()) {
              getinverse = getinverse)
 }
 
+## In the next function, I tell R to calculate the inverse of the matrix from the function above "makeCacheMatrix". 
+# Also, if the inverse has been calculated and the matrix remained unchanged, then R should perform "cacheSolve" by retrieving the inverse of cache.
+
+
+
 cacheSolve <- function(x, ...) {
         i <- x$getinverse()
         if (!is.null(i)) {
@@ -40,8 +43,24 @@ cacheSolve <- function(x, ...) {
         x$setinverse(i)
         i
 }
+
+## this is me testing the functions
+
+#solve(da) 
 da <- matrix(c(1,2,3,4),2,2)
 
 ve <- makeCacheMatrix(da)
 cacheSolve(ve)
+#the inverse is outputed 
+## this is what it looks like
+##      [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
+
 cacheSolve(ve)
+#inverse returned from cache
+## getting cached data
+## this is what it looks like
+##      [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
